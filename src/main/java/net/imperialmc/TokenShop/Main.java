@@ -18,6 +18,7 @@ public class Main extends JavaPlugin {
   }
   
   public void onDisable() {
+    TokenManager.saveHashMap();
     plugin = null; // To stop memory leaks
   }
   
