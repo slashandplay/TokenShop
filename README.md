@@ -12,3 +12,12 @@ Commands:
   - /tokens set <playerName> <numberOfTokens>
   - /tshop
   - /tokens help
+
+
+Draft Format for ShopData.yml :
+items:
+  - 5 1 protection:1
+  - 10 2 fireprotection:1 lore:"lore" name:"&dadfa"
+    - $10
+  - 
+  
