@@ -2,6 +2,7 @@ package net.imperialmc.TokenShop;
 
 import net.imperialmc.TokenShop.CommandManager.TShopCommand;
 import net.imperialmc.TokenShop.CommandManager.TokensCommand;
+import io.netty.util.ResourceLeakDetector.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -23,6 +24,7 @@ public class Main extends JavaPlugin implements Listener {
   public void onEnable() {
     this.saveDefaultConfig();
     initPlugin(this); // This is where we register our events/commands
+    ResourceLeakDetector.setLevel(Level.DISABLED); //This is for netty optimizations
     
     /** Register Events & Commands */
     getServer().getPluginManager().registerEvents(this, this);
