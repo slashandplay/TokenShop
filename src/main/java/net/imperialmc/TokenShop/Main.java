@@ -8,38 +8,30 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements Listener {
   
-  private static Plugin plugin;
-  TokenManager tokenm = new TokenManager();
+	public static Main plugin;
+  
+	protected static Main getPlugin() {
+		return plugin;
+	}
+	
+	protected void initPlugin(Main plugin) {
+		Main.plugin = plugin;
+	}
   
   public void onEnable() {
     this.saveDefaultConfig();
-    plugin = this; // This is where we register our events/commands
+    initPlugin(this); // This is where we register our events/commands
     
     /** Register Events & Commands */
-    registerEvents(this, new TokenManager());
+    getServer().getPluginManager().registerEvents(this, this);
     getCommand("tokens").setExecutor(new TokensCommand());
     getCommand("tshop").setExecutor(new TShopCommand());
-  }
-
-  // Much eaisier then registering events in 10 diffirent methods
-  public static void registerEvents(org.bukkit.plugin.Plugin plugin,
-      Listener... listeners) {
-    for (Listener listener : listeners) {
-      Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
-    }
   }
   
   public void onDisable() {
     TokenManager.saveHashMap();
-    plugin = null; // To stop memory leaks
   }
-  
-  public static Plugin getPlugin() {
-    return plugin;
-  }
-  
-  
-  
+ }
 }
