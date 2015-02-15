@@ -30,10 +30,6 @@ public class Main extends JavaPlugin {
       Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
     }
   }
-
-  public TokenManager getTokenManager() {
-    return tokenm;
-  }
   
   public void onDisable() {
     TokenManager.saveHashMap();

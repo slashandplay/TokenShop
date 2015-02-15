@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.plugin.Plugin;
 
 public class TokenManager implements Listener {
   
@@ -22,6 +25,21 @@ public class TokenManager implements Listener {
         tokens.put(playerID, config.getInt("tokens." + playerID));
       }
     }
+  }
+  
+  public void onQuit(PlayerQuitEvent e) {
+    Plugin plugin = Main.getPlugin();
+    final Player p = e.getPlayer();
+    final String playerID = p.getUniqueId().toString();
+    /** Run scheduler to remove them from the hashmap and update the config*/
+    plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable() {
+      public void run() {
+        if (p.isOnline() != true) {
+          config.set("tokens." + playerID, tokens.get(playerID));
+          tokens.remove(playerID);
+        }
+      }
+    }, 140L);
   }
   
   public static void saveHashMap() {
