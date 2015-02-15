@@ -12,29 +12,29 @@ import org.bukkit.plugin.Plugin;
 
 public class TokenManager implements Listener {
   
-  private static Map<String, Integer> tokens = new HashMap<>();
-  private static FileConfiguration config = Main.getPlugin().getConfig();
+  protected static HashMap<String, Integer> tokens = new HashMap<String, Integer>();
+  protected static FileConfiguration config = Main.getPlugin().getConfig();
+  private static Main plugin = Main.getPlugin(); //Might as well have a global variable for this, no harm
   
+  @EventHandler
   public static void onJoinAddToHashMap(PlayerJoinEvent e) {
     String playerID = e.getPlayer().getUniqueId().toString();
     if (tokens.get(playerID) == null) {
       if (config.get("tokens." + playerID) == null) {
         tokens.put(playerID, 0);
-      }
-      else {
-        tokens.put(playerID, config.getInt("tokens." + playerID));
+        } 
+        else tokens.put(playerID, config.getInt("tokens." + playerID));
       }
     }
-  }
   
+  @EventHandler
   public void onQuit(PlayerQuitEvent e) {
-    Plugin plugin = Main.getPlugin();
     final Player p = e.getPlayer();
-    final String playerID = p.getUniqueId().toString();
     /** Run scheduler to remove them from the hashmap and update the config*/
     plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable() {
       public void run() {
-        if (p.isOnline() != true) {
+        if (!p.isOnline()) {
+          String playerID = p.getUniqueId().toString();
           config.set("tokens." + playerID, tokens.get(playerID));
           tokens.remove(playerID);
         }
