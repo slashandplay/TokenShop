@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class TokenManager {
+public class TokenManager implements Listener {
   
   private static Map<String, Integer> tokens = new HashMap<>();
   private static FileConfiguration config = Main.getPlugin().getConfig();
