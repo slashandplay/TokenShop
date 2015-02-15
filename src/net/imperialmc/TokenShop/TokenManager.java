@@ -5,17 +5,29 @@ import java.util.Map;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 public class TokenManager implements Listener {
-  
+
+    private Main plugin;
+
+    public TokenManager(Main Main) {
+
+        // PLUGIN RUNS BACK TO MAIN CLASS
+        plugin = Main;
+
+        plugin.getServer().getPluginManager().registerEvents(this, Main);
+
+
+    }
+
   protected static HashMap<String, Integer> tokens = new HashMap<String, Integer>();
-  protected static FileConfiguration config = Main.getPlugin().getConfig();
-  private static Main plugin = Main.getPlugin(); //Might as well have a global variable for this, no harm
-  
+  protected static FileConfiguration config = Main.pl().getConfig();
+
   @EventHandler
   public static void onJoinAddToHashMap(PlayerJoinEvent e) {
     String playerID = e.getPlayer().getUniqueId().toString();
