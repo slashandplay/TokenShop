@@ -16,6 +16,10 @@ public class TokenManager implements Listener {
   protected static FileConfiguration config = Main.getPlugin().getConfig();
   private static Main plugin = Main.getPlugin(); //Might as well have a global variable for this, no harm
   
+  public void Initialize() {
+		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+	}
+  
   @EventHandler
   public static void onJoinAddToHashMap(PlayerJoinEvent e) {
     String playerID = e.getPlayer().getUniqueId().toString();
