@@ -28,6 +28,7 @@ public class Main extends JavaPlugin implements Listener {
     
     /** Register Events & Commands */
     getServer().getPluginManager().registerEvents(this, this);
+    new TokenManager().Initialize();
     getCommand("tokens").setExecutor(new TokensCommand());
     getCommand("tshop").setExecutor(new TShopCommand());
   }
