@@ -48,7 +48,7 @@ public class GUIManager implements CommandExecutor {
       String[] data = litemContents.split();
       /** Checks the first String in the array for ':' */
       for (int j = 0; j < data[0].length() j++) {
-        if (data[0].charAt(i).equals(':')) {
+        if (data[0].charAt(j).equals(':')) {
           // Splits the String into two 
           String[] itemSpecifics = data[0].split(':');
           dataValuePresent = true;
