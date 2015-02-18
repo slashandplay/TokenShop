@@ -1,6 +1,5 @@
 package net.imperialmc.TokenShop.ShopManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.imperialmc.TokenShop.Main;
