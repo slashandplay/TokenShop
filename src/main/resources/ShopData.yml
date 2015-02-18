@@ -1,6 +1,3 @@
 shop:
   - shopname: 'name'
-  - 5 1 protection:1 lore:"this is the lore" fireprotection:1
-    - $10
-  - 12 4
-    - $100
+  - Material.EMERALD:2 1 $5 E16 E17 E18 name:"ada"
