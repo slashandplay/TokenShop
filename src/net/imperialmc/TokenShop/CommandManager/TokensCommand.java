@@ -1,6 +1,7 @@
 package net.imperialmc.TokenShop.CommandManager;
 
 import net.imperialmc.TokenShop.Main;
+import net.imperialmc.TokenShop.UUIDFetcher;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

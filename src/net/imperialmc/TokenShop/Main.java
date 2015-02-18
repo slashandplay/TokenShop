@@ -2,6 +2,7 @@ package net.imperialmc.TokenShop;
 
 import net.imperialmc.TokenShop.CommandManager.TShopCommand;
 import net.imperialmc.TokenShop.CommandManager.TokensCommand;
+import net.imperialmc.TokenShop.ShopManager.GUIListener;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.imperialmc.TokenShop.CommandManager;
+package net.imperialmc.TokenShop;
 
 import com.google.common.collect.ImmutableList;
 import org.json.simple.JSONArray;

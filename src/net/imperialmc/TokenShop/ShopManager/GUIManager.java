@@ -1,6 +1,5 @@
 package net.imperialmc.TokenShop.ShopManager;
 
-import java.util.UUID;
 import java.util.ArrayList;
 
 import net.imperialmc.TokenShop.Main;
@@ -23,7 +22,7 @@ public class GUIManager {
   private Main plugin;
   
   private Inventory shop = Bukkit.createInventory(null, 27, "§a§lImperial Factions Reborn TokenShop");
-  private String shopName = "§a§lImperial Factions Reborn TokenShop";
+  private static String shopName = "§a§lImperial Factions Reborn TokenShop";
   FileConfiguration shopData;
   
   public GUIManager() {
@@ -43,7 +42,7 @@ public class GUIManager {
     ArrayList<String> list = new ArrayList<>();
     String itemContents;
     boolean dataValuePresent;
-    String[] itemSpecifics;
+    String[] itemSpecifics = null;
     
     for (int i = 0; i < list.size(); i++) {
       dataValuePresent = false;
@@ -77,6 +76,7 @@ public class GUIManager {
       
       shop.setItem(i, itemstack);
     }
+    return shop;
     
   }
   
@@ -84,7 +84,7 @@ public class GUIManager {
     return shop;
   }
   
-  private String getShopName() {
+  public static String getShopName() {
     return shopName;
   }
 }
