@@ -1,0 +1,23 @@
+name: TokenShop
+version: 0.1
+author: millenium200, CullanP, luke199, xXkunGpowBeefXx
+website: http://imperialmc.net
+main: net.imperial.TokenShop.main
+commands:
+  tokens:
+    description: This command shows you your tokens.
+    usage: /tokens
+    permission: millenium.tokenshop.tokens
+    permission-message: You don't have enough swag.
+  tshop:
+    description: This command teleports you to your checkpoint.
+    usage: /tshop
+    permission: millenium.tokenshop.tshop
+    permission-message: You don't have enough swag.
+permissions:
+    millenium.tokenshop.tokens:
+        description: Allows access to use tokens
+        default: true
+    millenium.tokenshop.tshop:
+        description: Allows access to the tokenshop
+        default: true
