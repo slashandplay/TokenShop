@@ -1,0 +1,6 @@
+shop:
+  - shopname: 'name'
+  - 5 1 protection:1 lore:"this is the lore" fireprotection:1
+    - $10
+  - 12 4
+    - $100

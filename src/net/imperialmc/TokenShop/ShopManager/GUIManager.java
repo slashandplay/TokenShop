@@ -11,6 +11,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 public class GUIManager implements CommandExecutor {
 
@@ -23,6 +24,14 @@ public class GUIManager implements CommandExecutor {
   }
   
   static {
+    ItemStack newstack = new ItemStack(Material.EMERALD, 1);
+    
+    shop.setItem(i, newstack);
+    
+    for (int i = 0; i < list.size(); i++) {
+      //TODO
+    }
+    
     InventoryListener.itemk();
   }
 
