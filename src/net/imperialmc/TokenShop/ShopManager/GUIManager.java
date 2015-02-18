@@ -12,10 +12,13 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
-public class GUIManager implements CommandExecutor {
+public class GUIManager {
 
   private Main plugin;
   
@@ -37,35 +40,37 @@ public class GUIManager implements CommandExecutor {
     shop = Bukkit.createInventory(null, 27, shopName);
     
     // TODO: Get the content from the config file into this list v
-    ArrayList<String>() list = new ArrayList<>();
+    ArrayList<String> list = new ArrayList<>();
     String itemContents;
     boolean dataValuePresent;
+    String[] itemSpecifics;
     
     for (int i = 0; i < list.size(); i++) {
       dataValuePresent = false;
       itemContents = list.get(i);
       /** Splits the large String */
-      String[] data = litemContents.split();
+      String[] data = itemContents.split(" ");
       /** Checks the first String in the array for ':' */
-      for (int j = 0; j < data[0].length() j++) {
-        if (data[0].charAt(j).equals(':')) {
+      for (int j = 0; j < data[0].length(); j++) {
+        if (data[0].charAt(j) == ':') {
           // Splits the String into two 
-          String[] itemSpecifics = data[0].split(':');
+          itemSpecifics = data[0].split(":");
           dataValuePresent = true;
           break;
         }
       }
       
       int quantity = (int)Integer.getInteger(data[1]);
+      ItemStack itemstack;
       
       /** If datavalue present, use the data value, if not, use simpler ItemStack constructor */
       if (dataValuePresent) {
         Material material = Material.getMaterial(itemSpecifics[0]);
-        ItemStack itemstack = new ItemStack(material, quantity, (Short)Integer.getInteger(itemSpecifics[1]));
+        itemstack = new ItemStack(material, quantity, (short)((int)(Integer.getInteger(itemSpecifics[1]))));
       }
       else {
         Material material = Material.getMaterial(data[0]);
-        ItemStack itemstack = new ItemStack(material, quantity);
+        itemstack = new ItemStack(material, quantity);
       }
       
       ItemMeta meta = itemstack.getItemMeta();
@@ -73,12 +78,6 @@ public class GUIManager implements CommandExecutor {
       shop.setItem(i, itemstack);
     }
     
-    Material material = Material.EMERALD;
-    int quantity = 1;
-    ItemStack itemstack = new ItemStack(material, quantitiy);
-    
-    shop.setItem(i, newstack);
-
   }
   
   public Inventory getInventory() {
@@ -86,6 +85,6 @@ public class GUIManager implements CommandExecutor {
   }
   
   private String getShopName() {
-    return shopname;
+    return shopName;
   }
 }
