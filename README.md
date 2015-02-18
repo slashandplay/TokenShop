@@ -7,9 +7,9 @@ and will let players use the tokens in a TokenShop (GUI Inventory)
 
 Commands:
   - /tokens [playerName]
-  - /tokens give <playerName> <numberOfTokens>
-  - /tokens take <playerName> <numberOfTokens>
-  - /tokens set <playerName> <numberOfTokens>
+  - /tokens give [playerName] [numberOfTokens]
+  - /tokens take [playerName] [numberOfTokens]
+  - /tokens set [playerName] [numberOfTokens]
   - /tshop
   - /tokens help
 
