@@ -8,45 +8,42 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements Listener {
 
-    //TODO: [Things to do]
+  // TODO: [Things to do]
 
-    private static Main pl;
+  private static Main plugin;
 
-    public void onEnable() {
+  public void onEnable() {
 
-        saveDefaultConfig();
+    this.saveDefaultConfig();
+    ResourceLeakDetector.setlevel(Level.DISABLED); // This is for netty
+                                                   // optimizations
+    plugin = this;
 
-        pl = this;
+    registerEvents(); // Registered events defined below
+    registerCommands(); // Registers commands defined below
 
-        registerEvents(); // Registered events defined below
-        registerCommands(); // Registers commands defined below
+  }
 
-    }
+  public void onDisable() {
+    TokenManager.saveHashMap();
+  }
 
-    public void onDisable() {
+  // MASTER PLUGIN
+  public static Main pl() {
+    return plugin;
+  }
 
-        TokenManager.saveHashMap();
+  public void registerEvents() {
 
-        // PUT NOTHING HERE
+    new TokenManager(this);
 
-    }
+  }
 
-    // MASTER PLUGIN
-    public static Main pl() {
-        return pl;
-    }
+  public void registerCommands() {
 
-    public void registerEvents() {
+    new TShopCommand(this);
+    new TokensCommand(this);
 
-        new TokenManager(this);
-
-    }
-
-    public void registerCommands() {
-
-        new TShopCommand(this);
-        new TokensCommand(this);
-
-    }
+  }
 
 }
