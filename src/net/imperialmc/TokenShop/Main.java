@@ -36,6 +36,7 @@ public class Main extends JavaPlugin implements Listener {
   public void registerEvents() {
 
     new TokenManager(this);
+    new GUIListener(this);
 
   }
 
