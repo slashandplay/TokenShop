@@ -30,6 +30,20 @@ public class TShopCommand implements CommandExecutor {
   @Override
   public boolean onCommand(CommandSender sender, Command cmd, String StringLabel,
       String[] args) {
-    
+    if (cmd.getName().equalsIgnoreCase("tshop")) {
+
+        if (!(sender instanceof Player)) {
+          sender.sendMessage(ChatColor.RESET
+              + "Only players can open the tokenshop!");
+          return true;
+        }
+        
+        Player player = (Player) sender;
+        
+        player.openInventory(GUIManager.getInventory());
+        return true;
+      }
+    return false;
   }
+}
 }

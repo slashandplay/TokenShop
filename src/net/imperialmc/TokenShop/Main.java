@@ -27,8 +27,6 @@ public class Main extends JavaPlugin implements Listener {
 
         TokenManager.saveHashMap();
 
-        pl = null; // Stop Memory Leaks, put everything above else you can cause errors on disabling!
-
         // PUT NOTHING HERE
 
     }
