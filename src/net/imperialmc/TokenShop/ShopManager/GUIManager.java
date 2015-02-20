@@ -22,10 +22,13 @@ public class GUIManager {
   private Main plugin;
   
   private Inventory shop = Bukkit.createInventory(null, 27, "§a§lImperial Factions Reborn TokenShop");
-  private static String shopName = "§a§lImperial Factions Reborn TokenShop";
+  private static String shopName;
   FileConfiguration shopData;
   
   public GUIManager() {
+    //TODO Get shopdata, pull the name, replace & from shopdata
+    //with the symbol below
+    shopName = "§a§lImperial Factions Reborn TokenShop";
     shop = createInventory();
   }
   
@@ -80,7 +83,7 @@ public class GUIManager {
     
   }
   
-  public Inventory getInventory() {
+  public Inventory getShop() {
     return shop;
   }
   

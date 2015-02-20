@@ -27,7 +27,7 @@ public class UUIDFetcher implements Callable<Map<String, UUID>> {
     private static final String PROFILE_URL = "https://api.mojang.com/profiles/page/";
     private static final String AGENT = "minecraft";
 
-    static Object getUUIDof(String playerName) {
+    public static Object getUUIDof(String playerName) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     private final JSONParser jsonParser = new JSONParser();

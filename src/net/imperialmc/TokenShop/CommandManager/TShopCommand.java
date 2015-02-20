@@ -1,10 +1,6 @@
 package net.imperialmc.TokenShop.CommandManager;
 
-import java.util.UUID;
-
 import net.imperialmc.TokenShop.Main;
-import net.imperialmc.TokenShop.TokenManager;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -24,8 +20,6 @@ public class TShopCommand implements CommandExecutor {
         plugin.getCommand("tshop").setExecutor(this);
 
     }
-
-  // TODO : Set Permissions & Add to this
   
   @Override
   public boolean onCommand(CommandSender sender, Command cmd, String StringLabel,
@@ -40,10 +34,14 @@ public class TShopCommand implements CommandExecutor {
         
         Player player = (Player) sender;
         
-        player.openInventory(GUIManager.getInventory());
+        if(!(player.hasPermission("millenium.tokenshop.tshop"))) {
+          player.sendMessage("You do not have enough swag.");
+          return true;
+        }
+        
+        player.openInventory(plugin.getGUI().getShop());
         return true;
       }
     return false;
   }
-}
 }

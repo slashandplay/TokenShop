@@ -1,8 +1,10 @@
 package net.imperialmc.TokenShop.CommandManager;
 
 import net.imperialmc.TokenShop.Main;
+import net.imperialmc.TokenShop.TokenManager;
 import net.imperialmc.TokenShop.UUIDFetcher;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,6 +14,7 @@ import org.bukkit.event.Listener;
 public class TokensCommand implements CommandExecutor, Listener {
 
   private Main plugin;
+  static String announcePrefix = ChatColor.BLUE + "[Tokens]";
 
   public TokensCommand(Main Main) {
 
@@ -26,7 +29,6 @@ public class TokensCommand implements CommandExecutor, Listener {
   @Override
   public boolean onCommand(CommandSender sender, Command cmd, String StringLabel,
       String[] args) {
-    String announcePrefix = ChatColor.BLUE + "[Tokens]";
     
     if (cmd.getName().equalsIgnoreCase("tokens")) {
 
@@ -47,7 +49,7 @@ public class TokensCommand implements CommandExecutor, Listener {
         return true;
       }
       else if (args.length == 1) {
-        if (!args[0].equals("help") {
+        if (!args[0].equals("help")) {
           sender.sendMessage(announcePrefix + ChatColor.BOLD 
               + "Imperial Networks Tokens!");
           String playerName = args[0];
@@ -86,9 +88,9 @@ public class TokensCommand implements CommandExecutor, Listener {
   public static void alertPlayerTheirTokens(Player player) {
     int playerTokens = TokenManager.getTokens(player.getUniqueId()
         .toString());
-    sender.sendMessage(announcePrefix + "You have " + playerTokens
+    player.sendMessage(announcePrefix + "You have " + playerTokens
         + "tokens!");
-    sender
+    player
         .sendMessage(announcePrefix
             + "Use /tshop to use your tokens!, Use /tokens help for more info!");
   }
