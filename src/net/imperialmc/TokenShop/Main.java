@@ -2,10 +2,10 @@ package com.slashandplay.TokenShop;
 
 //import java.util.logging.Level;
 
-import net.imperialmc.TokenShop.CommandManager.TShopCommand;
-import net.imperialmc.TokenShop.CommandManager.TokensCommand;
-import net.imperialmc.TokenShop.ShopManager.GUIListener;
-import net.imperialmc.TokenShop.ShopManager.GUIManager;
+import com.slashandplay.TokenShop.CommandManager.TShopCommand;
+import com.slashandplay.TokenShop.CommandManager.TokensCommand;
+import com.slashandplay.TokenShop.ShopManager.GUIListener;
+import com.slashandplay.TokenShop.ShopManager.GUIManager;
 //import net.minecraft.util.io.netty.util.ResourceLeakDetector;
 
 import org.bukkit.event.Listener;
