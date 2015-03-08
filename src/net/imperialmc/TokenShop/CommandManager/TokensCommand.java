@@ -1,8 +1,8 @@
 package com.slashandplay.TokenShop.CommandManager;
 
-import net.imperialmc.TokenShop.Main;
-import net.imperialmc.TokenShop.TokenManager;
-import net.imperialmc.TokenShop.UUIDFetcher;
+import com.slashandplay.TokenShop.Main;
+import com.slashandplay.TokenShop.TokenManager;
+import com.slashandplay.TokenShop.UUIDFetcher;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
