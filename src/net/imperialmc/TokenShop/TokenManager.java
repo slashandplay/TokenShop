@@ -1,4 +1,4 @@
-package net.imperialmc.TokenShop;
+package com.slashandplay.TokenShop;
 
 import java.util.HashMap;
 import java.util.Map;
