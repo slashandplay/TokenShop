@@ -1,4 +1,4 @@
-package net.imperialmc.TokenShop.ShopManager;
+package com.slashandplay.TokenShop.ShopManager;
 
 import java.util.UUID;
 
