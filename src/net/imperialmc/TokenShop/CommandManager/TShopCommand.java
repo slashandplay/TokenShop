@@ -1,6 +1,6 @@
-package net.imperialmc.TokenShop.CommandManager;
+package com.slashandplay.TokenShop.CommandManager;
 
-import net.imperialmc.TokenShop.Main;
+import com.slashandplay.TokenShop.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
