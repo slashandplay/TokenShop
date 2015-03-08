@@ -1,4 +1,4 @@
-package net.imperialmc.TokenShop.ShopManager;
+package com.slashandplay.TokenShop.ShopManager;
 
 import java.util.ArrayList;
 
@@ -21,14 +21,14 @@ public class GUIManager {
 
   private Main plugin;
   
-  private Inventory shop = Bukkit.createInventory(null, 27, "§a§lImperial Factions Reborn TokenShop");
+  private Inventory shop = Bukkit.createInventory(null, 27, "Â§aÂ§lImperial Factions Reborn TokenShop");
   private static String shopName;
   FileConfiguration shopData;
   
   public GUIManager() {
     //TODO Get shopdata, pull the name, replace & from shopdata
     //with the symbol below
-    shopName = "§a§lImperial Factions Reborn TokenShop";
+    shopName = "Â§aÂ§lImperial Factions Reborn TokenShop";
     shop = createInventory();
   }
   
